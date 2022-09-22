@@ -5,21 +5,21 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: guestbook
+      app: caddy
       tier: frontend
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
-        app: guestbook
+        app: caddy
         tier: frontend
     spec:
       containers:
-      - name: php-redis
-        image: iaasfree/gb-frontend:v3
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100Mi
-        ports:
-        - containerPort: 80
+        - name: caddy
+          image: caddy
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          ports:
+            - containerPort: 80
